@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+$DATABASE_URL = parse_url('postgres://xdckqszqkmjvbz:59134dc1890acf78f849d51baf628a3e8a8a538c29ec2efcf4047fe20e0be680@ec2-44-194-167-63.compute-1.amazonaws.com:5432/dca5knar81m3m1');
+
 return [
 
     /*
@@ -68,7 +70,8 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
+            // 'database' => env('DB_DATABASE', 'forge'),
+            'database' => ltrim($DATABASE_URL["path"], "/"),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
@@ -126,13 +129,15 @@ return [
             'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
         ],
 
-        'default' => [
-            'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD'),
-            'port' => env('REDIS_PORT', '6379'),
-            'database' => env('REDIS_DB', '0'),
-        ],
+        // 'default' => [
+        //     'url' => env('REDIS_URL'),
+        //     'host' => env('REDIS_HOST', '127.0.0.1'),
+        //     'password' => env('REDIS_PASSWORD'),
+        //     'port' => env('REDIS_PORT', '6379'),
+        //     'database' => env('REDIS_DB', '0'),
+        // ],
+
+        'default' => env('DB_CONNECTION', 'pgsql'),
 
         'cache' => [
             'url' => env('REDIS_URL'),
