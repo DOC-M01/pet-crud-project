@@ -18,7 +18,7 @@ Route::get('/', function () {
 }) -> middleware("auth");
 
 /* Omite la seccion de registrar y de recordar password */
-Auth::routes(['register' => false, 'reset' => false]);
+Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
 
