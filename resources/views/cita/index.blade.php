@@ -33,7 +33,7 @@
                             <label for="nameOwner">Nombres y apellidos</label>
                             <input type="text" class="form-control" id="nameOwner" name="nameOwner">
 
-                            <label for="numberOwner">Número</label>
+                            <label for="numberOwner">Número de contacto</label>
                             <input type="number" class="form-control" id="numberOwner" name="numberOwner">
                         </div>
 
